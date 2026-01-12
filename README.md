@@ -2,7 +2,7 @@
 
 This project consists of a ReactJS Frontend and SpringBoot Backend.
 
-###Backend Overview:
+### Backend Overview:
 The backend is a Spring Boot REST API responsible for:
 - User Management
 - Journal entrty operations
@@ -20,7 +20,7 @@ The backend is a Spring Boot REST API responsible for:
   - Maven
   - Embedded Tomcat
 
-###Frontend Overview:
+### Frontend Overview:
 The frontend is a static web interface that interacts with the backend APIs.
 
 **Pages**
@@ -58,9 +58,4 @@ cd "JournalApp - Frontend/"
 - Admin dashboard support
 - REST-based backend
 - Clean  seperation of frontend and backend
-  - View Contact Responses.
-  - View Subscribers.
-
- ### Important! 
- The project currently does not have any seeded/existing data to display, first connet your MongoDB cluster and insert data in the DB using the Admin panel in order to display it.
 
