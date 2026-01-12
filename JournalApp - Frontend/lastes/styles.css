@@ -1,0 +1,358 @@
+/* =================== Base / Reset =================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+:root{
+  --bg-1: #0f172a;
+  --bg-2: #1e2d47ed;
+  --ink: #111827;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --ring: #3b82f6;
+  --shadow: rgba(0,0,0,.25);
+  --radius: 16px;
+  --space: 1rem;
+}
+
+html, body { height: 100%; }
+
+body{
+  background: linear-gradient(135deg, var(--bg-2), var(--bg-1));
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(14px, 1.2vw, 16px);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+
+/* =================== App Wrapper =================== */
+#app{
+  background: var(--card);
+  padding: clamp(1rem, 2.5vw, 2rem);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px var(--shadow);
+  width: 100%;
+  max-width: 1100px;
+  animation: fadeIn .6s ease-in-out;
+}
+
+#app.auth{ max-width: 450px; }
+#app.dashboard{
+   max-width: 1100px; 
+background-color: rgb(222, 223, 239);
+border-radius: 20px 30% 0 0;}
+
+.img-logo{
+  max-width: 320px;
+  width: 70%;
+  position: relative;
+  display: block;
+  margin: 0 auto clamp(.5rem, 2vw, 1rem);
+}
+
+/* =================== Responsive Headings =================== */
+.heading-xl{ font-size: clamp(1.6rem, 5vw, 2.4rem); font-weight: 700; color: #1e293b; text-align: left; }
+.heading-lg{ font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight: 600; color: #1e293b; }
+.heading-md{ font-size: clamp(1.1rem, 3vw, 1.4rem); font-weight: 600; color: #1f2937; }
+.heading-sm{ font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 500; color: #374151; }
+
+#app .heading-xl{ text-align: center; margin-bottom: clamp(1rem, 2vw, 2rem); }
+
+/* Helpful defaults */
+p{ margin-bottom: .75rem; }
+ul{ margin: .75rem 0 .75rem 1.25rem; }
+
+/* =================== Forms & Inputs =================== */
+form{ margin-bottom: 1.25rem; }
+
+input, textarea{
+  width: 100%;
+  padding: .8rem 1rem;
+  margin-bottom: .9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: clamp(.9rem, 2.4vw, .95rem);
+  outline: none;
+  transition: all .25s ease;
+  background: #f9fafb;
+}
+
+textarea{ resize: vertical; min-height: 100px; }
+
+input:focus, textarea:focus{
+  border-color: var(--ring);
+  box-shadow: 0 0 10px rgba(59,130,246,.35);
+  background: #fff;
+}
+
+/* =================== Buttons =================== */
+button{
+  padding: .75rem 1.4rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  font-size: clamp(.9rem, 2.5vw, .95rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .3s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, .35);
+}
+
+button:hover{
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37,99,235,.45);
+}
+
+button:active{ transform: scale(.97); }
+
+#loginBtn, #registerBtn{ width: 100%; }
+
+/* =================== Logout button (top-right, red) =================== */
+#logoutBtn,
+button.logout{
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1000;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 8px 18px rgba(220,38,38,.35);
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  font-size: .9rem;
+}
+
+#logoutBtn:hover,
+button.logout:hover{
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* =================== Links =================== */
+a{
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .2s;
+}
+a:hover{ color: #1e40af; text-decoration: underline; }
+
+/* =================== Search =================== */
+#search-container{
+  display: flex;
+  gap: .5rem;
+  margin: 1rem 0;
+}
+#search-container input{ flex: 1; }
+@media (max-width: 480px){
+  #search-container{ flex-direction: column; }
+}
+
+/* =================== Entries (cards) =================== */
+#entries{ margin-top: 1rem; }
+
+.entry{
+  background: #fdfdfd;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.entry:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+}
+
+.entry p{ margin: 6px 0; }
+
+.entry strong{
+  display: inline-block;
+  width: 90px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.entry button{
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 8px 18px;
+  border-radius: 8px;
+}
+
+/* Better layout on tiny screens */
+@media (max-width: 480px){
+  .entry{ padding: .85rem; }
+  .entry strong{
+    display: block;
+    width: auto;
+    margin-bottom: .15rem;
+  }
+}
+
+/* =================== Admin Table =================== */
+#users-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  table-layout: fixed;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#users-table th, #users-table td{
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+#users-table th{
+  background: #f3f4f6;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+#users-table td ol, #users-table td ul{
+  margin: 0;
+  padding-left: 18px;
+}
+#users-table td ol li, #users-table td ul li{
+  margin-bottom: 8px;
+  padding: 4px 0;
+  line-height: 1.6;
+}
+
+/* Column widths */
+#users-table th:nth-child(1), #users-table td:nth-child(1){ width: 7%; }
+#users-table th:nth-child(2), #users-table td:nth-child(2){ width: 20%; }
+#users-table th:nth-child(3), #users-table td:nth-child(3){ width: 73%; }
+
+/* Scroll on narrow screens */
+@media (max-width: 720px){
+  #users-table{ display: block; overflow-x: auto; }
+}
+
+/* =================== Container: About + Auth =================== */
+.container{
+  display: flex;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border-radius: 10px 100% 10px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+/* ===== About Section ===== */
+.about-section{
+  flex: 1;
+  color: #fff;
+  background-color: #4f80b891;
+  padding: clamp(1rem, 3vw, 2rem);
+  border-radius: 0 30% 0 10%;
+  box-shadow: 0 10px 25px var(--shadow);
+  animation: fadeIn .7s ease-in-out;
+}
+
+.about-section .heading-xl{
+  margin-bottom: .75rem;
+}
+.about-section h1 span,
+.about-section .heading-xl span{ color: #ffd700; }
+
+.about-section p{
+  margin-bottom: .75rem;
+  font-size: clamp(.9rem, 2.8vw, 1rem);
+  line-height: 1.65;
+}
+
+.about-section ul{
+  list-style: none;
+  margin: .75rem 0;
+  padding: 0;
+}
+.about-section ul li{
+  margin-bottom: .65rem;
+  font-size: clamp(.9rem, 2.6vw, .95rem);
+  display: flex;
+  align-items: center;
+}
+.about-section ul li::before{
+  content: "✔";
+  margin-right: .6rem;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.auth{
+  flex: 1;
+  background: #ffffff;
+  padding: clamp(1rem, 3vw, 2rem);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.2);
+  max-width: 420px;
+}
+
+/* Stack on mobile */
+@media (max-width: 900px){
+  .container{ flex-direction: column; align-items: stretch; border-radius: 16px; }
+  .about-section, .auth{ max-width: 100%; border-radius: 16px; }
+  .about-section{ text-align: left; }
+}
+
+/* =================== Animations =================== */
+@keyframes fadeIn{
+  from{ opacity: 0; transform: translateY(10px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* =================== Section Toggle =================== */
+.hidden{ display: none !important; }
+
+/* =================== Extra Small Screens =================== */
+@media (max-width: 375px){
+  #app{ padding: .85rem; }
+  .img-logo{ width: 85%; left: 0; }
+}
+
+
+.box{
+  padding: 30px;
+  margin: 20px;
+  background: linear-gradient(135deg, #d6dff0, #cad5f4);
+    box-shadow: 0 10px 30px var(--shadow);
+
+  border-radius: 10px;
+}
+
+/* Stronger emphasis for entry titles in Admin Dashboard */
+#users-table td strong {
+  display: block;
+  font-weight: 700; /* bolder than default strong */
+  color: #111827;   /* darker gray for emphasis */
+  margin-bottom: .25rem;
+}
+
+

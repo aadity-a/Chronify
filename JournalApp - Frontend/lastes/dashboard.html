@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Chronify</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div id="app" class="dashboard">
+    <img class="img-logo" src="chro.png" alt="Chronify logo">
+
+    <div id="dashboard">
+      <p class="heading-lg" role="heading" aria-level="2">
+        Welcome, <span id="user-label"></span>
+      </p>
+      <hr>
+      <div class="box">
+        <button id="logoutBtn" class="logout" type="button">Logout</button>
+
+        <p class="heading-md" role="heading" aria-level="3">Add New Entry</p>
+        <input type="text" id="entry-title" placeholder="Title" />
+        <textarea id="entry-content" placeholder="Content"></textarea>
+        <button id="addEntryBtn" type="button">Add Entry</button>
+      </div>
+      
+      <div class="box">
+        <p class="heading-md" role="heading" aria-level="3">Search Journal Entry</p>
+        <div id="search-container" role="search">
+          <input type="text" id="searchId" placeholder="Search Entry by ID" />
+          <button id="searchBtn" type="button">Search</button>
+          <button id="clearBtn" type="button">Clear</button>
+        </div>
+      </div>
+      <hr>
+      <div class="box">
+        <p class="heading-md" role="heading" aria-level="3">Your Journal Entries</p>
+        <div id="entries" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

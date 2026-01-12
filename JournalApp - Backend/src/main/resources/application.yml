@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://aadi042105:Aadi0421@cluster0.fjwzhzi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: journal
+      auto-index-creation: true
+  main:
+    allow-circular-references: true
+
+server:
+  port: 8080
+
+

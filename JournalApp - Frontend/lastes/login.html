@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chronify - Auth</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Left: About Chronify -->
+    <section class="about-section" aria-labelledby="about-title">
+      <p id="about-title" class="heading-xl" role="heading" aria-level="1">
+        Welcome to <span>Chronify</span>
+      </p>
+      <p>
+        Chronify is a <strong>time-based note & record management system</strong> that lets you
+        create, organize, and securely store your notes with automatic timestamps.
+      </p>
+      <ul>
+        <li>📝 Full CRUD for Entries.</li>
+        <li>👤 Private spaces per user with simple registration & login.</li>
+        <li>⏱ Automatic time-stamping on every create and update.</li>
+      </ul>
+    </section>
+    
+
+    <!-- Right: Auth Forms -->
+    <div id="app" class="auth">
+      <img class="img-logo" src="chro.png" alt="Chronify logo">
+      
+      <!-- Login Section -->
+      <section id="login-section" class="auth-section">
+        <p class="heading-lg" role="heading" aria-level="2">Login</p>
+        <form id="loginForm">
+          <input type="text" id="login-username" placeholder="Username" autocomplete="username" required />
+          <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" required />
+          <button id="loginBtn" type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+      </section>
+
+      <!-- Register Section -->
+      <section id="register-section" class="auth-section hidden">
+        <p class="heading-lg" role="heading" aria-level="2">Register</p>
+        <form id="registerForm">
+          <input type="text" id="register-username" placeholder="Username" required />
+          <input type="password" id="register-password" placeholder="Password" required />
+          <button id="registerBtn" type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
