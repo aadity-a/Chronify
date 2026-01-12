@@ -1,17 +1,15 @@
 # CHRONIFY - A TIME-BASED NOTES, TASKS & RECORDS MANAGER  
 
-This project consists of a ReactJS Frontend and SpringBoot Backend.
-
 ### Backend Overview:
-The backend is a Spring Boot REST API responsible for:
+The Backend is a Spring Boot REST API responsible for:
 - User Management
-- Journal entrty operations
+- Journal entry operations
 - Business logic handling
 
 **Key components**:
 - Controller layer - Handles HTTP requests and responses
 - Service Layer - Contains business logic
-- Repository Layer - Managers database connection
+- Repository Layer - Manages database connection
 - Entity Layer - Defines entity classes (POJO)
 
 **Tech Stack**:
@@ -21,12 +19,12 @@ The backend is a Spring Boot REST API responsible for:
   - Embedded Tomcat
 
 ### Frontend Overview:
-The frontend is a static web interface that interacts with the backend APIs.
+The Frontend is a static web interface that interacts with the Backend APIs.
 
 **Pages**
 - login.html - User authentication
 - dashboard.html - User journal dashboard
-- admin-dashboard.html - Admin level view
+- admin-dashboard.html - Admin-level view
 - styles.css - Application styling
 - script.js - Client side logic and API calls
 
@@ -35,15 +33,15 @@ The frontend is a static web interface that interacts with the backend APIs.
   - CSS
   - JavaScript (Vanilla)
 
-### Setup and Run Backend (SpringBoot)
-1. Set your mongoDB-Atlas URI(backend/src/resources):
+### Setup and Run Backend (Spring Boot)
+1. Set your mongoDB-Atlas URI(src/main/resources):
    in application.properties
 
 2. Start Backend server:
    - By running the JournalApplication.java file (The entry point of the application).
   
-### Setup and Run FrontEnd
-1. Navigate to the frontend directory:
+### Setup and Run Frontend
+1. Navigate to the Frontend directory:
 ```bash
 cd "JournalApp - Frontend/"
 ```
@@ -56,6 +54,6 @@ cd "JournalApp - Frontend/"
 - User authentication
 - Create, view and manage journal entries
 - Admin dashboard support
-- REST-based backend
-- Clean  seperation of frontend and backend
+- REST-based Backend
+- Clean separation of Frontend and Backend
 
